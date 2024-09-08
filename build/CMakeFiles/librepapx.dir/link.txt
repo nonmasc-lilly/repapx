@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,liblibrepapx.so -o liblibrepapx.so CMakeFiles/librepapx.dir/src/repap.c.o CMakeFiles/librepapx.dir/src/glad/glad.c.o  /usr/lib/libglfw.so.3.4
