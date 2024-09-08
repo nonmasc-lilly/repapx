@@ -24,8 +24,6 @@
 #define RETURN      /* function writes new data to the pointer so\
                        that the old data is lost */
 #define REPAPX_ERROR_CODE uint16_t
-#define REPAPX_COORDS_XY(X, Y) \
-    ((((uint32_t)X) << 16) | ((uint32_t)Y))
 
 static const float repapx_vertices[] = {
   /* positions    texture coords */
@@ -97,11 +95,23 @@ REPAPX_ERROR_CODE repapx_init(
 REPAPX_BOOLEAN      repapx_is_closed(REPAPX_DATA ret);
 REPAPX_ERROR_CODE   repapx_update(STATE REPAPX_DATA *ret);
 
-void repapx_put(uint16_t x, uint16_t y, uint32_t color,
-    STATE REPAPX_DATA *pap);
-void repapx_putarr(uint16_t x, uint16_t y, uint16_t width,
-    uint16_t height, REFERENCE uint32_t *array,
-    STATE REPAPX_DATA *ret);
+void repapx_put(
+    uint16_t x,
+    uint16_t y,
+    uint32_t color,
+    STATE REPAPX_DATA *pap
+);
+void repapx_putarr(
+    uint16_t x,
+    uint16_t y,
+    uint16_t width,
+    uint16_t height,
+    REFERENCE uint32_t *array,
+    STATE REPAPX_DATA *ret
+);
 
-void repapx_terminate(REPAPX_ERROR_CODE exit_code);
+void repapx_terminate(
+    REPAPX_ERROR_CODE exit_code,
+    REPAPX_DATA *pap
+);
 #endif

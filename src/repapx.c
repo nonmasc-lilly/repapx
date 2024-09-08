@@ -257,7 +257,11 @@ void repapx_putarr(
     }
 }
 
-void repapx_terminate(REPAPX_ERROR_CODE exit_code) {
+void repapx_terminate(
+        REPAPX_ERROR_CODE exit_code,
+        REPAPX_DATA *repap) {
+    repap->active = REPAPX_FALSE;
+    free(repap->pixel_buffer);
     glfwTerminate();
     repapx_exit(exit_code);
 }
